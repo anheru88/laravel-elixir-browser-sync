@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-browsersync",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Laravel Elixir Browser Sync Extension",
   "main": "index.js",
   "scripts": {

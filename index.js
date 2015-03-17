@@ -49,10 +49,9 @@ elixir.extend("BrowserSync",  function(options, src){
 
         if(browserSync.active === true){
             browserSync.reload;
-            notify_message('Laravel Elixir BrowserSync', '', 'Reload', '/../laravel-elixir/icons/pass.png');
         } else {
             browserSync(options);
-            notify_message('Laravel Elixir BrowserSync', '', 'Start', '/../laravel-elixir/icons/pass.png');
+
         }
     });
 
