@@ -40,7 +40,7 @@ elixir.extend("BrowserSync",  function(options, src){
                 title       : "BrowserSync",
                 subtitule   : "BrowserSync Failed!",
                 message     : "Error : <%= error.message %>",
-                icon        : __dirname + '/node_modules/laravel-elixir/icons/fail.png'
+                icon        : __dirname + '/../laravel-elixir/icons/fail.png'
             })(err);
 
             this.emit('end');
@@ -49,10 +49,10 @@ elixir.extend("BrowserSync",  function(options, src){
 
         if(browserSync.active === true){
             browserSync.reload;
-            notify_message('Laravel Elixir BrowserSync', '', 'Reload', '/node_modules/laravel-elixir/icons/pass.png');
+            notify_message('Laravel Elixir BrowserSync', '', 'Reload', '/../laravel-elixir/icons/pass.png');
         } else {
             browserSync(options);
-            notify_message('Laravel Elixir BrowserSync', '', 'Start', '/node_modules/laravel-elixir/icons/pass.png');
+            notify_message('Laravel Elixir BrowserSync', '', 'Start', '/../laravel-elixir/icons/pass.png');
         }
     });
 
