@@ -1,9 +1,10 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
-var notify 		= require('gulp-notify');
+var notify      = require('gulp-notify');
 var _           = require('underscore');
-var elixir 		= require('laravel-elixir');
-var reload 		= browserSync.reload;
+var elixir      = require('laravel-elixir');
+var reload      = browserSync.reload;
+
 
 function notify_message(title, subtitle, message, icon){
     gulp.src('').pipe(notify({
@@ -23,11 +24,11 @@ elixir.extend("BrowserSync",  function(options, src){
     ];
 
     options = _.extend({
-        proxy 			: "homestead.app",
-        logPrefix		: "Laravel Elixir BrowserSync",
-        logConnections	: true,
+        proxy           : "homestead.app",
+        logPrefix       : "Laravel Elixir BrowserSync",
+        logConnections  : true,
         reloadOnRestart : true,
-        notify 			: true
+        notify          : true
     }, options);
 
     src = src || defaultSrc;
@@ -36,10 +37,10 @@ elixir.extend("BrowserSync",  function(options, src){
 
         var onError = function(err){
             notify.onError({
-                title 		: "BrowserSync",
-                subtitule	: "BrowserSync Filed!",
-                message 	: "Error : <%= error.message %>",
-                icon		: __dirname + '/../icons/fail.png'
+                title       : "BrowserSync",
+                subtitule   : "BrowserSync Failed!",
+                message     : "Error : <%= error.message %>",
+                icon        : __dirname + '/node_modules/laravel-elixir/icons/fail.png'
             })(err);
 
             this.emit('end');
@@ -48,13 +49,15 @@ elixir.extend("BrowserSync",  function(options, src){
 
         if(browserSync.active === true){
             browserSync.reload;
-            notify_message('Laravel Elixir BrowserSync', 'BrowserSync Reload', '', '/../laravel-elixir/icons/pass.png');
+            notify_message('Laravel Elixir BrowserSync', '', 'Reload', '/node_modules/laravel-elixir/icons/pass.png');
         } else {
             browserSync(options);
-            gulp.watch(src).on('change', reload);
-            notify_message('Laravel Elixir BrowserSync', 'BrowserSync Start', '', '/../laravel-elixir/icons/pass.png');
+            notify_message('Laravel Elixir BrowserSync', '', 'Start', '/node_modules/laravel-elixir/icons/pass.png');
         }
     });
+
+
+    this.registerWatcher('BrowserSync', src);
 
     return this.queueTask("BrowserSync");
 });
