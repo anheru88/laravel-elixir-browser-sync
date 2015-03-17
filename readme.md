@@ -12,7 +12,7 @@ This is a simple wrapper around Laravel Elixir. Add it to your Elixir-enhanced G
 ```
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-browser-sync');
+require('laravel-elixir-browsersync');
 
 elixir(function(mix) {
 	mix.BrowserSync();
@@ -24,7 +24,7 @@ The second use is passing options to BrowserSync, acording the documentation of 
 ```
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-browser-sync');
+require('laravel-elixir-browsersync');
 
 elixir(function(mix) {
 	mix.BrowserSync(
