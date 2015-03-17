@@ -24,7 +24,7 @@ elixir.extend("BrowserSync",  function(options, src){
 
     options = _.extend({
         proxy 			: "homestead.app",
-        logPrefix		: "Laravel elixir BrowserSync",
+        logPrefix		: "Laravel Elixir BrowserSync",
         logConnections	: true,
         reloadOnRestart : true,
         notify 			: true
