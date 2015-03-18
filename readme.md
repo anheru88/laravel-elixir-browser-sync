@@ -13,7 +13,7 @@ $ npm install laravel-elixir-browsersync --save-dev
 
 This is a simple wrapper around Laravel Elixir. Add it to your Elixir-enhanced Gulpfile. You need using Homestead, and configure your virtual machine and the domain `homestead.app`, like so: 
 
-```
+```javascript
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-browsersync');
@@ -25,7 +25,7 @@ elixir(function(mix) {
 
 The second use is passing options to BrowserSync, acording the documentation of [BrowserSync.io](http://www.browsersync.io/docs/options/), like the next example:
 
-```
+```javascript
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-browsersync');
