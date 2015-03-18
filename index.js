@@ -3,7 +3,6 @@ var browserSync = require('browser-sync');
 var notify      = require('gulp-notify');
 var _           = require('underscore');
 var elixir      = require('laravel-elixir');
-var reload      = browserSync.reload;
 
 
 function notify_message(title, subtitle, message, icon){
@@ -48,10 +47,9 @@ elixir.extend("BrowserSync",  function(options, src){
 
 
         if(browserSync.active === true){
-            browserSync.reload;
+            browserSync.reload();
         } else {
             browserSync(options);
-
         }
     });
 
