@@ -26,6 +26,6 @@
     "browser-sync": "^2.2.5",
     "gulp-notify": "^2.2.0",
     "underscore": "^1.8.2",
-    "run-sequence": "^1.1.0",
+    "run-sequence": "^1.1.0"
   }
 }
