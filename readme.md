@@ -15,10 +15,10 @@ This is a simple wrapper around Laravel Elixir. Add it to your Elixir-enhanced G
 
 ```javascript
 var elixir = require('laravel-elixir');
-
-require('laravel-elixir-browsersync');
+var BrowserSync = require('laravel-elixir-browsersync');
 
 elixir(function(mix) {
+	BrowserSync.init();
 	mix.BrowserSync();
 });
 ```
@@ -27,10 +27,10 @@ The second use is passing options to BrowserSync, acording the documentation of 
 
 ```javascript
 var elixir = require('laravel-elixir');
-
-require('laravel-elixir-browsersync');
+var BrowserSync = require('laravel-elixir-browsersync');
 
 elixir(function(mix) {
+	BrowserSync.init();
 	mix.BrowserSync(
 	{
 		proxy 			: "domain.app",
