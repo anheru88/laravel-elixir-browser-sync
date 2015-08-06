@@ -2,11 +2,19 @@
 
 ![Version](https://img.shields.io/npm/v/laravel-elixir-browsersync.svg?style=flat-square)
 
+
 ## Install
 
+If you use Laravel Elixir Version "^3.0.0".
 
 ```sh
 $ npm install laravel-elixir-browsersync --save-dev
+```
+
+If you use Laravel Elixir Version Below "^3.0.0".
+
+```sh
+$ npm install laravel-elixir-browsersync@0.1.3
 ```
 
 ## Usage
