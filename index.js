@@ -1,13 +1,12 @@
 var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 var notify      = require('gulp-notify');
 var _           = require('underscore');
-var Elixir      = require('laravel-elixir');
-
-var Task = Elixir.Task;
+var elixir      = require('laravel-elixir');
+var config      = elixir.config;
+var inSequence = require('run-sequence');
 
 var initializePlugin = function(){
-
     function notify_message(title, subtitle, message, icon){
         gulp.src('').pipe(notify({
             title: title,
@@ -17,8 +16,8 @@ var initializePlugin = function(){
         }));
     }
 
+    elixir.extend("BrowserSync",  function(options, src){
 
-    Elixir.extend("BrowserSync",  function(options, src){
 
         var defaultSrc = [
             "app/**/*",
@@ -36,8 +35,7 @@ var initializePlugin = function(){
 
         src = src || defaultSrc;
 
-        new Task("BrowserSync", function(){
-
+        gulp.task("BrowserSync", function(){
             var onError = function(err){
                 notify.onError({
                     title       : "BrowserSync",
@@ -49,16 +47,42 @@ var initializePlugin = function(){
                 this.emit('end');
             }
 
-            notify_message('Laravel Elixir BrowserSync', '', 'Start', '/../laravel-elixir/icons/pass.png');
-            
-            browserSync.init(options);
-
-            gulp.watch(src).on("change", browserSync.reload);
-
+            if(config.watchers.default.BrowserSync._runing === true){
+                if(browserSync.active === true){
+                    browserSync.reload();
+                } else {
+                    browserSync(options);
+                }
+            }
         });
 
+
+        this.registerWatcher('BrowserSync', src);
+
+        return this.queueTask("BrowserSync");
     });
 
+    var srcPaths;
+    var tasksToRun;
+
+    gulp.task('watch', function(){
+
+        config.watchers.default.BrowserSync._runing = true;
+        srcPaths = config.watchers.default;
+        tasksToRun = _.intersection(config.tasks, _.keys(srcPaths).concat('copy'));
+
+        inSequence.apply(this, tasksToRun.concat('watch-assets'));
+    });
+
+    gulp.task('watch-assets', function() {
+        for (var task in srcPaths) {
+            if (_.isFunction(srcPaths[task])) {
+                srcPaths[task].apply(this);
+            } else {
+                gulp.watch(srcPaths[task], [task]);
+            }
+        }
+    });
 }
 
 module.exports = {

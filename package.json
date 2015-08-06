@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-browsersync",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Laravel Elixir Browser Sync Extension",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/anheru88/laravel-elixir-browser-sync",
   "dependencies": {
-    "browser-sync": "^2.2.5",
+    "browser-sync": "2.2.5",
     "gulp-notify": "^2.2.0",
     "underscore": "^1.8.2",
     "run-sequence": "^1.1.0"

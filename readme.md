@@ -5,16 +5,12 @@
 
 ## Install
 
-If you use Laravel Elixir Version "^3.0.0".
-
-```sh
-$ npm install laravel-elixir-browsersync --save-dev
-```
+If you use Laravel Elixir Version "^3.0.0". [Follow this link](https://github.com/anheru88/laravel-elixir-browser-sync2)
 
 If you use Laravel Elixir Version Below "^3.0.0".
 
 ```sh
-$ npm install laravel-elixir-browsersync@0.1.3
+$ npm install laravel-elixir-browsersync --save-dev
 ```
 
 ## Usage
